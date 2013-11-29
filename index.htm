@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>JeegooColor, a jQuery colorpicker plugin</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+
+    <link href="jeegoopopup/skins/basic/style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/black/style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/blue/style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/clean/style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/gray/style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/round/style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoocolor/style.css" rel="Stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="jeegoopopup/jquery.jeegoopopup.1.0.0.min.js"></script>
+    <script type="text/javascript" src="jeegoocolor/jquery.jeegoocolor.1.0.0.js"></script>
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            // Bind color squares to colorpicker.
+            $('#colors span').click(function(){
+                
+                $.jeegoopopup.close(); // close any previously opened color pickers.
+
+                var $this = $(this);
+
+                var options = {
+                    center: $('#center').is(':checked'),
+                    fixed: $('#fixed').is(':checked'),
+                    skinClass: $('#skin').val(),
+                    overlay: $('#overlay').is(':checked'),
+                    overlayColor: $('#color').val(),
+                    fadeIn: parseInt($('#fadeIn').val()) || 0,
+                    draggable: $('#draggable').is(':checked'),
+                    resizable: $('#resizable').is(':checked'),
+                    scrolling: $('#scrolling').val(),
+                    parentScrolling: $('#parentScrolling').is(':checked'),
+                    color: $this.css('backgroundColor'),
+                    onPick: function (color) {
+                        $this.css('backgroundColor', '#' + color);
+                    }
+                };
+
+                var left = parseInt($('#left').val());
+                if(!isNaN(left))
+                    options.left = left;
+
+                var top = parseInt($('#top').val());
+                if(!isNaN(top))
+                    options.top = top;
+
+                var right = parseInt($('#right').val());
+                if(!isNaN(right))
+                    options.right = right;
+
+                var bottom = parseInt($('#bottom').val());
+                if(!isNaN(bottom))
+                    options.bottom = bottom;
+
+                var opacity = parseFloat($('#opacity').val());
+                if(!isNaN(opacity))
+                    options.opacity = opacity;
+
+                var history = parseInt($('#history').val());
+                if(!isNaN(history))
+                    options.history = history;
+                
+                $.jeegoocolor(options);
+            });
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="header">
+            <h1><span class="jg_red">J</span><span class="jg_green">ee</span><span class="jg_yellow">g</span><span class="jg_blue">oo</span>Color, <span style="font-size:.7em">a jQuery colorpicker plugin</span></h1>
+            Copyright &copy; 2009 - 2013 <a href="http://www.tweego.nl" target="_blank">TweeGo</a>: <a href="http://www.tweego.nl/jeegoocolor" target="_blank">http://www.tweego.nl/jeegoocolor</a>
+        </div>          
+        <div id="content">
+            <div style="width:900px; margin:0 auto">
+
+                <div style="width:50%; float:left">
+                    <h2>Position</h2>
+                    <div class="row">
+                        <label for="left">Left</label><input id="left" type="text" class="text" /> px
+                    </div>
+                    <div class="row">
+                        <label for="top">Top</label><input id="top" type="text" class="text" /> px
+                    </div>
+                    <div class="row">
+                        <label for="right">Right</label><input id="right" type="text" class="text" /> px
+                    </div>
+                    <div class="row">
+                        <label for="bottom">Bottom</label><input id="bottom" type="text" class="text" /> px
+                    </div>
+                    <div class="row">
+                        <label>Center</label><input type="radio" id="center" name="center" checked="checked" /> Yes <input type="radio" name="center" /> No
+                    </div>
+                    <div class="row">
+                        <label>Position fixed</label><input type="radio" id="fixed" name="fixed" checked="checked" /> Yes <input type="radio" name="fixed" /> No
+                    </div>
+                </div>
+                <div style="width:50%; float:right">
+                    <h2>Appearance &amp; Overlay</h2>
+                    <div class="row">
+                        <label for="skin">Skin</label><select id="skin">
+                            <option value="jg_popup_basic">Basic</option>
+                            <option value="jg_popup_black">Black</option>
+                            <option value="jg_popup_blue">Blue</option>
+                            <option value="jg_popup_clean" selected="selected">Clean</option>
+                            <option value="jg_popup_gray">Gray</option>
+                            <option value="jg_popup_round">Round</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>Show overlay</label><input type="radio" id="overlay" name="overlay" /> Yes <input type="radio" name="overlay" checked="checked" /> No
+                    </div>
+                    <div class="row">
+                        <label for="opacity">Overlay opacity</label><input id="opacity" type="text" value="50" class="text" /> (0 - 100)
+                    </div>
+                    <div class="row">
+                        <label for="color">Overlay color</label><select id="color">
+                            <option value="#000">Black</option>
+                            <option value="#fff">White</option>
+                            <option value="#f00">Red</option>
+                            <option value="#0f0">Green</option>
+                            <option value="#00f">Blue</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="width:50%; float:left">
+                    <h2>Behavior</h2>
+                    <div class="row">
+                        <label for="fadeIn">Fade-in</label><input id="fadeIn" type="text" value="300" class="text" /> ms
+                    </div>
+                    <div class="row">
+                        <label>Draggable</label><input type="radio" id="draggable" name="draggable" checked="checked" /> Yes <input type="radio" name="draggable" /> No
+                    </div>
+                    <div class="row">
+                        <label>Resizable</label><input type="radio" id="resizable" name="resizable" /> Yes <input type="radio" name="resizable" checked="checked" /> No
+                    </div>
+                    <div class="row">
+                        <label for="scrolling">Overflow scrolling</label><select id="scrolling">
+                            <option value="yes">Yes</option>
+                            <option value="no" selected="selected">No</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>Parent scrolling</label><input type="radio" id="parentScrolling" name="parentScrolling" checked="checked" /> Yes <input type="radio" name="parentScrolling" /> No
+                    </div>
+                    <div class="row">
+                        <label for="history">History length</label><input id="history" type="text" value="24" class="text" />
+                    </div>
+                </div>
+                <div style="width:50%; float:right">
+                    <h2>Change these colors</h2>
+                    <div id="colors">
+                        <span style="background:#f00"></span><span style="background:#0f0"></span><span style="background:#00f"></span>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>  
+    </div>  
+</body>
+</html>

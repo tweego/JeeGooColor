@@ -1,0 +1,30 @@
+﻿{
+    "name": "Jeegoocolor",
+    "version": "1.0.0",
+    "title": "Jeegoocolor",
+    "description": "jQuery color picker plugin, flexible color picker based on jeegoopopup.",
+    "keywords": [
+        "color-picker",
+		"color-chooser",
+        "popup"
+    ],
+    "author": {
+        "name": "Erik van den Berg",
+        "url": "http://www.tweego.nl/auteurs/erik_van_den_berg"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/tweego/jeegoocolor/blob/1.0.0/MIT-License.txt"
+        }
+    ],
+    "bugs": "https://github.com/tweego/jeegoocolor/issues",
+    "homepage": "http://www.tweego.nl/jeegoocolor",
+    "docs": "http://www.tweego.nl/jeegoocolor/documentation/v100",
+    "demo": "http://www.tweego.nl/jeegoocolor/demo",
+    "dependencies": {
+        "jquery": ">=1.4.2",
+		"jeegoopopup": ">=1.0.0",
+		"cookie": ">=1.0.0"
+    }
+}
