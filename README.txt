@@ -5,5 +5,5 @@ Features:
 - Based on jeegoopopup:
 	- Draggable.
 	- Skinable, multiple skins included.
-	- Numerous properties and methods to configure appearance, position en behavior.
+	- Numerous properties and methods to configure appearance, position and behavior.
 - Cookie based history of picked colors.
