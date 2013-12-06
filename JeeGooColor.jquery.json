@@ -1,12 +1,13 @@
 ﻿{
     "name": "JeeGooColor",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "JeeGoo Color",
     "description": "jQuery color picker plugin, flexible color picker based on jeegoopopup.",
     "keywords": [
-        "color-picker",
-		"color-chooser",
-        "popup"
+		"colorpicker",
+		"color",
+		"dialog",
+		"popup"
     ],
     "author": {
         "name": "Erik van den Berg",
